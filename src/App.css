@@ -1,0 +1,108 @@
+.myoverlay {
+  position: fixed; 
+  display: block; 
+  width: 100%; 
+  height: 100%; 
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2; 
+  cursor: pointer; 
+  z-index: 0;
+}
+.myoverlayOn {
+  background-color: rgba(0,0,0,0.0); 
+}
+.myoverlayOff {
+  background-color: rgba(0,0,0,0.7); 
+}
+.mycontainer {
+  top: 0px;
+  width: 1200px;
+  height: 600px;
+  position: relative;
+  perspective: 600px;
+  /* half the width */
+  border: 2px solid green;
+}
+.myroom {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-origin: 50% 80% 600px;
+  transform-style: preserve-3d;
+}
+.myroom figure {
+  margin: 0;
+  display: block;
+  position: absolute;
+  border: 2px solid green;
+  font: 400px"calibri";
+  text-align: center;
+}
+.myroom .n,
+.e,
+.s,
+.w {
+  width: 1196px;
+  height: 596px;
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+.myroom .t,
+.b {
+  width: 1196px;
+  height: 1196px;
+  top: -300px;
+  background-color: rgba(200, 200, 200, 0.5);
+}
+/* transform & inverse */
+
+.myroom .n {
+  transform: rotateY(0deg) translateZ(0px);
+}
+.myroom .e {
+  transform: rotateY(-90deg) translateZ(-600px) translateX(600px);
+}
+.myroom .s {
+  transform: rotateY(180deg) translateZ(-1200px);
+}
+.myroom .w {
+  transform: rotateY(90deg) translateZ(-600px) translateX(-600px);
+}
+.myroom .t {
+  transform: rotateX(90deg) translateZ(300px) translateY(600px);
+}
+.myroom .b {
+  transform: rotateX(90deg) translateZ(-300px) translateY(600px);
+}
+.myroom .show-n {
+  transform: translateZ(0px) rotateY(0deg);
+}
+.myroom .show-e {
+  transform: translateX(-600px) translateZ(600px) rotateY(90deg);
+}
+.myroom .show-s {
+  transform: translateZ(1200px) rotateY(180deg);
+}
+.myroom .show-w {
+  transform: translateX(600px) translateZ(600px) rotateY(-90deg);
+}
+.myroom .show-t {
+  transform: translateY(-600px) translateZ(-300px) rotateX(-90deg);
+}
+.myroom .show-b {
+  transform: translateY(-600px) translateZ(300px) rotateX(90deg);
+}
+.myroom {
+  animation: 5s hspinner;
+}
+@keyframes hspinner {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
